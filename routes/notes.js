@@ -1,11 +1,17 @@
-const express=require('express');
-const {verifyToken}=require('../middleware/authmiddleware');
-const router=express.Router();
+const express = require("express");
+const { verifyToken } = require("../middleware/authmiddleware");
+const {
+  addNote,
+  getallNote,
+  updateNote,
+  deleteNote,
+} = require("../controllers/notes");
+const router = express.Router();
 
-router.post('/add', verifyToken ,(req,res)=>{
-res.send("Mst chala");
-});
-const notes=express();
-module.exports=router;
+router.post("/add", verifyToken, addNote);
+router.get("/getallNote", verifyToken, getallNote);
+router.put("/updateNote/:noteId", verifyToken, updateNote);
+router.delete("/deleteNote/:noteId", verifyToken, deleteNote);
 
-// const {addNote, CreateNote, UpdateNote} = require('../controllers/notes');
+const notes = express();
+module.exports = router;
