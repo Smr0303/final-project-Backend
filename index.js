@@ -5,6 +5,7 @@ const app = express();
 const bcrypt = require("bcrypt");
 const authroutes = require("./routes/auth");
 const client = require("./config/db");
+const noteroutes=require('./routes/notes');
 
 
 app.use(express.json());
@@ -20,7 +21,11 @@ client.connect(()=>{
   console.log("Connected to Database");
 });
 
+
 app.use("/auth", authroutes);
+app.use('/notes',noteroutes,()=>{
+  console.log("came in");
+});
 
 app.listen(port, () => {
   console.log("Server is running");

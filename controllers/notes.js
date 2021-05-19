@@ -5,7 +5,7 @@ exports.addNote=(req,res)=>{
 
 
 
-exports.UpdateNote=(req,res)=>{
+exports.getallNote=(req,res)=>{
 
 };
 
