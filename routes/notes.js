@@ -1,4 +1,4 @@
 const express=require('express');
 const notes=express();
 
-notes.post('/')
+const {addNote, CreateNote, UpdateNote} = require('../controllers/notes');
